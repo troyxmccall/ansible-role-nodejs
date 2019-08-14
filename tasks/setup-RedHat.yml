@@ -37,4 +37,4 @@
   yum: name=epel-release state=latest
 
 - name: Ensure Node.js and npm are installed.
-  yum: "name=nodejs-{{ nodejs_version[0] }}.* state=present enablerepo='epel,nodesource'"
+  yum: "name=nodejs-{{ nodejs_version|regex_replace('x', '') }}* state=present enablerepo='nodesource'"
